@@ -1,6 +1,8 @@
 package v2402;
 
 import GmailTest.pages.GmailPage;
+import GmailTest.pages.MailsPage;
+import GmailTest.pages.MenuPage;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
@@ -11,13 +13,17 @@ public class BaseTest {
 
     static WebDriver driver;
     static WebDriverWait wait;
-    static GmailPage page;
+    static GmailPage gmail;
+    static MailsPage mails;
+    static MenuPage menu;
 
     @BeforeClass
     public static void setUp() {
         driver = new FirefoxDriver();
         wait = new WebDriverWait(driver, 6);
-        page = new GmailPage(driver);
+        gmail = new GmailPage(driver);
+        mails = new MailsPage(driver);
+        menu = new MenuPage(driver);
     }
 
     @AfterClass

@@ -1,18 +1,11 @@
 package v2402;
 
-import GmailTest.pages.GmailPage;
-import GmailTest.pages.MailsPage;
-import GmailTest.pages.MenuPage;
 import org.junit.Test;
 
 public class GmailTest extends BaseTest {
 
     @Test
     public void testGmailCommonFlow() {
-
-        GmailPage gmail = new GmailPage(driver);
-        MenuPage menu = new MenuPage(driver);
-        MailsPage mails = new MailsPage(driver);
 
         String subject = Helpers.getUniqueText("test");
 

@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 public class MenuPage {
 
     static WebDriver driver;
-    static GmailPage page;
+    static GmailPage gmail;
 
     public static void refresh() {
         driver.findElement(By.cssSelector(".asf")).click();
@@ -27,8 +27,8 @@ public class MenuPage {
     }
 
     public static void search(String subject) {
-        page.search.clear();
-        page.search.sendKeys("subject:" + subject + Keys.ENTER);
+        gmail.search.clear();
+        gmail.search.sendKeys("subject:" + subject + Keys.ENTER);
         //driver.findElement(By.name("q")).clear();
         //driver.findElement(By.name("q")).sendKeys(subject+ Keys.ENTER);
     }

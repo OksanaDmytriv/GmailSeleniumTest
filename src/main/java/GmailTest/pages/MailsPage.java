@@ -10,7 +10,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentI
 
 public class MailsPage {
     static WebDriver driver;
-    static GmailPage page;
+    static GmailPage gmail;
     static WebDriverWait wait;
 
     //public static ElementsCollection emails = $$("[role='main'] .zA");
