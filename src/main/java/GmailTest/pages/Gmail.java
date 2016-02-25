@@ -23,7 +23,7 @@ public class Gmail {
         driver.findElement(By.cssSelector("#Passwd")).sendKeys(password + Keys.ENTER);
     }
 
-    public Gmail(WebDriver driver, WebDriverWait wait) {
+    public Gmail(WebDriver driver) {
         this.driver = driver;
     }
 }
