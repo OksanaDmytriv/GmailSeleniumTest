@@ -10,7 +10,7 @@ public class GmailTest extends BaseTest {
     @Test
     public void testGmailCommonFlow() {
 
-        Gmail gmail = new Gmail(driver);
+        Gmail gmail = new Gmail(driver, wait);
         Menu menu = new Menu(driver);
         Mails mails = new Mails(driver);
 
