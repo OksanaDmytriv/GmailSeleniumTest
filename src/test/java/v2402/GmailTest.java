@@ -5,8 +5,6 @@ import GmailTest.pages.Mails;
 import GmailTest.pages.Menu;
 import org.junit.Test;
 
-
-
 public class GmailTest extends BaseTest {
 
     @Test
@@ -14,8 +12,7 @@ public class GmailTest extends BaseTest {
 
         String subject = Helpers.getUniqueText("test");
 
-
-        Gmail.open();
+        Gmail.open("http://gmail.com");
         Gmail.login(TestData.email, TestData.password);
 
         Mails.send(TestData.email, subject);

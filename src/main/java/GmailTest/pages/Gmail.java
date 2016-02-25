@@ -9,8 +9,8 @@ public class Gmail{
     static WebDriver driver;
     static GmailPage page;
 
-    public static void open() {
-        driver.get("http://GmailTest.com");
+    public static void open(String URL){
+        driver.get(URL);
     }
 
     public static void login(String email, String password) {
