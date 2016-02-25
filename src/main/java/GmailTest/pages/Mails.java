@@ -1,6 +1,5 @@
 package GmailTest.pages;
 
-import GmailTest.GmailPage.GmailPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -8,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static GmailTest.core.CustomConditions.minimumSizeOf;
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
 
-public class Mails{
+public class Mails {
     static WebDriver driver;
     static GmailPage page;
     static WebDriverWait wait;
@@ -37,4 +36,9 @@ public class Mails{
         // wait.until(minimumSizeOf);
         //emails.get(index).shouldHave(text(subject));
     }
+
+    public Mails(WebDriver driver){
+        this.driver=driver;
+    }
+
 }

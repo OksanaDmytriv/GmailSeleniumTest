@@ -10,21 +10,25 @@ public class GmailTest extends BaseTest {
     @Test
     public void testGmailCommonFlow() {
 
+        Gmail gmail = new Gmail(driver);
+        Menu menu = new Menu(driver);
+        Mails mails = new Mails(driver);
+
         String subject = Helpers.getUniqueText("test");
 
-        Gmail.open("http://gmail.com");
-        Gmail.login(TestData.email, TestData.password);
+        gmail.open("http://gmail.com");
+        gmail.login(TestData.email, TestData.password);
 
-        Mails.send(TestData.email, subject);
-        Menu.refresh();
-        Mails.assertMail(0, subject);
+        mails.send(TestData.email, subject);
+        menu.refresh();
+        mails.assertMail(0, subject);
 
-        Menu.openSent();
-        Mails.assertMail(0, subject);
+        menu.openSent();
+        mails.assertMail(0, subject);
 
-        Menu.openInbox();
-        Menu.search(subject);
-        //Mails.assertMails(subject);
+        menu.openInbox();
+        menu.search(subject);
+        //mails.assertMails(subject);
     }
 
 }

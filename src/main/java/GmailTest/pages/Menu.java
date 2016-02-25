@@ -1,6 +1,5 @@
 package GmailTest.pages;
 
-import GmailTest.GmailPage.GmailPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -31,5 +30,9 @@ public class Menu{
         page.search.sendKeys("subject:" + subject + Keys.ENTER);
         //driver.findElement(By.name("q")).clear();
         //driver.findElement(By.name("q")).sendKeys(subject+ Keys.ENTER);
+    }
+
+    public Menu(WebDriver driver){
+        this.driver=driver;
     }
 }

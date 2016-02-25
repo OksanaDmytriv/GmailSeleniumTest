@@ -1,6 +1,6 @@
 package v2402;
 
-import GmailTest.GmailPage.GmailPage;
+import GmailTest.pages.GmailPage;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
