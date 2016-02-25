@@ -1,40 +1,49 @@
 package GmailTest.pages;
 
+import GmailTest.core.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 
-public class MenuPage {
+public class MenuPage extends BasePage{
 
-    static WebDriver driver;
-    static GmailPage gmail;
+    public static WebDriver driver;
 
-    public static void refresh() {
+    @FindBy(name = "q")
+    public
+    WebElement search;
+
+    public void refresh() {
         driver.findElement(By.cssSelector(".asf")).click();
         //$(".asf").click();
     }
 
-    public static void openSent() {
+    public void openSent() {
         driver.findElement(By.cssSelector("Sent Mail")).click();
         //$(byTitle("Sent Mail")).click();
     }
 
-    public static void openInbox() {
+    public void openInbox() {
         driver.findElement(By.cssSelector("Inbox")).click();
         //$(byTitle("Inbox")).click();
     }
 
-    public static void search(String subject) {
-        gmail.search.clear();
-        gmail.search.sendKeys("subject:" + subject + Keys.ENTER);
+    public void search(String subject) {
+        search.clear();
+        search.sendKeys("subject:" + subject + Keys.ENTER);
         //driver.findElement(By.name("q")).clear();
         //driver.findElement(By.name("q")).sendKeys(subject+ Keys.ENTER);
     }
 
+    @Override
+    public WebDriver getWebDriver() {
+        return driver;
+    }
+
     public MenuPage(WebDriver driver){
-        this.driver=driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 }

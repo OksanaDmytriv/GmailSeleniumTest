@@ -1,8 +1,15 @@
 package v2402;
 
+import GmailTest.pages.GmailPage;
+import GmailTest.pages.MailsPage;
+import GmailTest.pages.MenuPage;
 import org.junit.Test;
 
 public class GmailTest extends BaseTest {
+
+   GmailPage gmail = new GmailPage(driver);
+   MailsPage mails = new MailsPage(driver);
+   MenuPage menu = new MenuPage(driver);
 
     @Test
     public void testGmailCommonFlow() {
