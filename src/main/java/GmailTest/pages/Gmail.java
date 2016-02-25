@@ -3,6 +3,7 @@ package GmailTest.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
@@ -25,5 +26,6 @@ public class Gmail {
 
     public Gmail(WebDriver driver) {
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 }

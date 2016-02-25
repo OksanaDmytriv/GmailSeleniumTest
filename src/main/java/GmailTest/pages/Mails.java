@@ -2,6 +2,7 @@ package GmailTest.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static GmailTest.core.CustomConditions.minimumSizeOf;
@@ -39,6 +40,7 @@ public class Mails {
 
     public Mails(WebDriver driver){
         this.driver=driver;
+        PageFactory.initElements(driver, this);
     }
 
 }
