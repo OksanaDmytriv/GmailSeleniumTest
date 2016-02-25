@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static GmailTest.core.CustomConditions.minimumSizeOf;
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
 
-public class Mails {
+public class MailsPage {
     static WebDriver driver;
     static GmailPage page;
     static WebDriverWait wait;
@@ -38,7 +38,7 @@ public class Mails {
         //emails.get(index).shouldHave(text(subject));
     }
 
-    public Mails(WebDriver driver){
+    public MailsPage(WebDriver driver){
         this.driver=driver;
         PageFactory.initElements(driver, this);
     }

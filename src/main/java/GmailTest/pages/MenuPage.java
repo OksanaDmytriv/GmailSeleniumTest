@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class Menu{
+public class MenuPage {
 
     static WebDriver driver;
     static GmailPage page;
@@ -33,7 +33,7 @@ public class Menu{
         //driver.findElement(By.name("q")).sendKeys(subject+ Keys.ENTER);
     }
 
-    public Menu(WebDriver driver){
+    public MenuPage(WebDriver driver){
         this.driver=driver;
         PageFactory.initElements(driver, this);
     }

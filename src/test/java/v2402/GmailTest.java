@@ -1,8 +1,8 @@
 package v2402;
 
-import GmailTest.pages.Gmail;
-import GmailTest.pages.Mails;
-import GmailTest.pages.Menu;
+import GmailTest.pages.GmailPage;
+import GmailTest.pages.MailsPage;
+import GmailTest.pages.MenuPage;
 import org.junit.Test;
 
 public class GmailTest extends BaseTest {
@@ -10,9 +10,9 @@ public class GmailTest extends BaseTest {
     @Test
     public void testGmailCommonFlow() {
 
-        Gmail gmail = new Gmail(driver);
-        Menu menu = new Menu(driver);
-        Mails mails = new Mails(driver);
+        GmailPage gmail = new GmailPage(driver);
+        MenuPage menu = new MenuPage(driver);
+        MailsPage mails = new MailsPage(driver);
 
         String subject = Helpers.getUniqueText("test");
 
