@@ -1,24 +1,21 @@
 package v2402;
 
+import GmailTest.core.Helpers;
 import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BaseTest {
+public class BaseTest extends Helpers{
 
-    public static WebDriver driver;
-    public static WebDriverWait wait;
-
-    @BeforeClass
-    public static void setUp() {
-        driver = new FirefoxDriver();
-        wait = new WebDriverWait(driver, 6);
-    }
+    static WebDriver driver = new FirefoxDriver();
 
     @AfterClass
     public static void teardown() {
         driver.quit();
+    }
+
+    @Override
+    public WebDriver getWebDriver() {
+        return driver;
     }
 }
