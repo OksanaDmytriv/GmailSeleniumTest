@@ -1,11 +1,16 @@
-package v2402;
-
-import GmailTest.pages.GmailPage;
-import GmailTest.pages.MailsPage;
-import GmailTest.pages.MenuPage;
+import core.Configuration;
 import org.junit.Test;
+import pages.GmailPage;
+import pages.MailsPage;
+import pages.MenuPage;
+
+import static core.Helpers.getUniqueText;
 
 public class GmailTest extends BaseTest {
+
+    static {
+        Configuration.timeout = 15000;
+    }
 
     GmailPage gmail = new GmailPage(driver);
     MailsPage mails = new MailsPage(driver);
@@ -16,7 +21,7 @@ public class GmailTest extends BaseTest {
 
         String subject = getUniqueText("test");
 
-        gmail.open("http://gmail.com");
+        gmail.visit();
         gmail.login(TestData.email, TestData.password);
 
         mails.send(TestData.email, subject);

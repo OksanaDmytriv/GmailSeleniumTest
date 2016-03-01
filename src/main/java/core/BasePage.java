@@ -1,9 +1,9 @@
-package GmailTest.core;
+package core;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-public abstract class BasePage extends Helpers {
+public class BasePage extends ConciseAPI {
 
     @Override
     public WebDriver getWebDriver() {
@@ -17,8 +17,5 @@ public abstract class BasePage extends Helpers {
         PageFactory.initElements(driver, this);
     }
 
-    public void open(String URL) {
-        driver.get(URL);
-    }
 
 }

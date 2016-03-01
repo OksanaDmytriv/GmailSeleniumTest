@@ -1,6 +1,6 @@
-package GmailTest.pages;
+package pages;
 
-import GmailTest.core.BasePage;
+import core.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
-import static GmailTest.core.CustomConditions.emailContainText;
+import static core.CustomConditions.emailContainText;
 
 public class MailsPage extends BasePage {
 
@@ -39,11 +39,11 @@ public class MailsPage extends BasePage {
     }
 
     public void assertMails(String subjects) {
-        assertThis(emailContainText(By.cssSelector("[role='main'] .zA:nth-child(1)"), subjects));
+        assertThat(emailContainText(By.cssSelector("[role='main'] .zA:nth-child(1)"), subjects));
     }
 
     public void assertMail(int index, String subject) {
-        assertThis(emailContainText(By.cssSelector("[role='main'] .zA:nth-child("+ index +")"), subject));
+        assertThat(emailContainText(By.cssSelector("[role='main'] .zA:nth-child("+ index +")"), subject));
     }
 
     public MailsPage(WebDriver driver) {

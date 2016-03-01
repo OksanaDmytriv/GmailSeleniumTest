@@ -1,11 +1,9 @@
-package v2402;
-
-import GmailTest.core.Helpers;
+import core.ConciseAPI;
 import org.junit.AfterClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class BaseTest extends Helpers{
+public class BaseTest extends ConciseAPI {
 
     static WebDriver driver = new FirefoxDriver();
 
