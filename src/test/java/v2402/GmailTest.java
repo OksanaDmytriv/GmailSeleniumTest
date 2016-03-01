@@ -21,14 +21,14 @@ public class GmailTest extends BaseTest {
 
         mails.send(TestData.email, subject);
         menu.refresh();
-        mails.assertMail(0, subject);
+        mails.assertMail(1, subject);
 
-        //menu.openSent();
-        //mails.assertMail(0, subject);
+        menu.openSent();
+        mails.assertMail(1, subject);
 
-        //menu.openInbox();
-        //menu.search(subject);
-        //mails.assertMails(subject);
+        menu.openInbox();
+        menu.search(subject);
+        mails.assertMails(subject);
     }
 
 }

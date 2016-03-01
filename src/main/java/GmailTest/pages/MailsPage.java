@@ -8,9 +8,8 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-import static GmailTest.core.CustomConditions.minimumSizeOf;
-import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
+import static GmailTest.core.CustomConditions.emailContainText;
 
 public class MailsPage extends BasePage {
 
@@ -30,8 +29,6 @@ public class MailsPage extends BasePage {
     public
     WebElement recipient;
 
-    //public static ElementsCollection emails = $$("[role='main'] .zA");
-
     public void send(String email, String subject) {
         assertThat(visibilityOf(composeButton));
         composeButton.click();
@@ -41,16 +38,12 @@ public class MailsPage extends BasePage {
         sendButton.click();
     }
 
-    //public static void assertMails(String... subjects) {
-    //    wait.until(textToBePresentInElementLocated(By.cssSelector("([role='main'] .zA)" + ":nth-child(1)"), subjects));
-    //emails.shouldHave(texts(subjects));
-    //}
+    public void assertMails(String subjects) {
+        assertThis(emailContainText(By.cssSelector("[role='main'] .zA:nth-child(1)"), subjects));
+    }
 
     public void assertMail(int index, String subject) {
-        assertThatBoolean(minimumSizeOf(By.cssSelector("([role='main'] .zA)"), index + 1));
-        assertThatBoolean((textToBePresentInElementLocated(By.cssSelector("([role='main'] .zA)" + ":nth-child(1)"), subject)));
-        // wait.until(minimumSizeOf);
-        //emails.get(index).shouldHave(text(subject));
+        assertThis(emailContainText(By.cssSelector("[role='main'] .zA:nth-child("+ index +")"), subject));
     }
 
     public MailsPage(WebDriver driver) {

@@ -10,7 +10,7 @@ public abstract class Helpers {
 
     public abstract WebDriver getWebDriver();
 
-    public void assertThatBoolean(ExpectedCondition<Boolean> condition) {
+    public void assertThis(ExpectedCondition<Boolean> condition) {
        (new WebDriverWait(getWebDriver(), 6)).until(condition);
     }
 
