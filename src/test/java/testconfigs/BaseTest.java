@@ -1,11 +1,18 @@
+package testconfigs;
+
 import core.ConciseAPI;
+import core.Configuration;
 import org.junit.AfterClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BaseTest extends ConciseAPI {
 
-    static WebDriver driver = new FirefoxDriver();
+    public static WebDriver driver = new FirefoxDriver();
+
+    static {
+        Configuration.timeout = 15000;
+    }
 
     @AfterClass
     public static void teardown() {

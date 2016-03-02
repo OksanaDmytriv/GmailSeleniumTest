@@ -21,6 +21,14 @@ public abstract class ConciseAPI {
         return getWebDriver().findElement(locator);
     }
 
+    public By byText(String text) {
+        return By.xpath("//*[text()[contains(.,'" + text + "')]]");
+    }
+
+    public By byCSS(String cssSelector) {
+        return By.cssSelector(cssSelector);
+    }
+
     public WebElement $(String cssSelector) {
         return getWebDriver().findElement(By.cssSelector(cssSelector));
     }

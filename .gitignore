@@ -3,4 +3,4 @@
 .idea
 target
 build
-/src/test/java/v2402/TestData.java
+/src/test/java/testdata/AccountData.java
