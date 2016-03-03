@@ -17,7 +17,7 @@ public class MenuPage extends BasePage {
     }
 
     public void openInbox() {
-        $(byText("Inbox")).click();
+        $(byCSS("a[aria-label^='Inbox']")).click();
     }
 
     public void search(String subject) {
