@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 import static core.CustomConditions.listNthElementHasText;
+import static core.CustomConditions.textsOf;
 
 public class MailsPage extends BasePage {
 
@@ -24,8 +25,7 @@ public class MailsPage extends BasePage {
     }
 
     public void assertMails(String... subjects) {
-
-        //assertThat(emailContainText(byCSS("[role='main'] .zA:nth-child(1)"), subjects));
+        assertThat(textsOf(emails, subjects));
     }
 
     public void assertMail(int index, String subject) {

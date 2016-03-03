@@ -30,7 +30,7 @@ public class GmailTest extends BaseTest {
 
         menu.openInbox();
         menu.search(subject);
-        //mails.assertMails(subject);
+        mails.assertMails(subject);
     }
 
 }

@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CustomConditions {
@@ -52,17 +52,23 @@ public class CustomConditions {
     public static ExpectedCondition<Boolean> textsOf(final List<WebElement> elements, final String... texts) {
         return new ExpectedCondition<Boolean>() {
             private int listSize;
-           private List<String> currentTexts;
-
+            private List<String> currentTexts;
 
             public Boolean apply(WebDriver webDriver) {
                 listSize = elements.size();
-                if(listSize != texts.length) {
+                currentTexts = new ArrayList<String>();
+                for (int a = 0; a < listSize; ++a) {
+                    currentTexts.add(a, elements.get(a).getText());
+                }
+                if (listSize != texts.length) {
                     return false;
                 } else {
-                    for(int i = 0; i < texts.length; ++i) {
-                        WebElement element = (WebElement)elements.get(i);
+                    for (int i = 0; i < texts.length; ++i) {
+                        WebElement element = elements.get(i);
                         String text = texts[i];
+                        if (!element.getText().contains(text)) {
+                            return false;
+                        }
                     }
                     return true;
                 }
@@ -74,16 +80,18 @@ public class CustomConditions {
 
             }
         };
+    }
 
 
-    public static ExpectedCondition<Boolean> listNthElementHasText(final List<WebElement> elements, final int index, final String text) {
+    public static ExpectedCondition<Boolean> listNthElementHasText(final List<WebElement> elements,
+                                                                   final int index, final String text) {
         return new ExpectedCondition<Boolean>() {
             String e;
 
             public Boolean apply(WebDriver webDriver) {
                 try {
                     e = elements.get(index).getText();
-                    return (e.contains(text))?true:false;
+                    return (e.contains(text)) ? true : false;
                 } catch (StaleElementReferenceException var3) {
                     return null;
                 }
@@ -95,4 +103,5 @@ public class CustomConditions {
             }
         };
     }
+
 }
