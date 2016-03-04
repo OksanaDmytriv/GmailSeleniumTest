@@ -1,6 +1,6 @@
 package core;
 
-import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -41,17 +41,55 @@ public class CustomConditions {
     public static ExpectedCondition<Boolean> listNthElementHasText(final List<WebElement> elements,
                                                                    final int index, final String text) {
         return new ExpectedCondition<Boolean>() {
+            private String currentText;
 
             public Boolean apply(WebDriver webDriver) {
                 try {
-                    return (elements.get(index).getText().contains(text)) ? true : false;
-                } catch (StaleElementReferenceException var3) {
+                    currentText = elements.get(index).getText();
+                    return (currentText.contains(text)) ? true : false;
+                } catch (IndexOutOfBoundsException ex) {
                     return null;
                 }
             }
 
             public String toString() {
-                return String.format("\ntext of element should be: %s\n while actual text is: %s\n", text, elements.get(index).getText());
+                return String.format("\ntext of element should be: %s\n while actual text is: %s\n", text, currentText);
+
+            }
+        };
+    }
+
+    public static ExpectedCondition<Boolean> sizeOf(final By elementsLocator, final int expectedSize) {
+        return new ExpectedCondition<Boolean>() {
+            private int listSize;
+            private List<WebElement> results;
+
+            public Boolean apply(WebDriver webDriver) {
+                results = webDriver.findElements(elementsLocator);
+                listSize = results.size();
+                return listSize == expectedSize;
+            }
+
+            public String toString() {
+                return String.format("\nsize of list: %s\n should be: %s\n while actual size is: %s\n", results, expectedSize, listSize);
+
+            }
+        };
+    }
+
+    public static ExpectedCondition<Boolean> minimumSizeOf(final By elementsLocator, final int minimumSize) {
+        return new ExpectedCondition<Boolean>() {
+            private int listSize;
+            private List<WebElement> results;
+
+            public Boolean apply(WebDriver webDriver) {
+                results = webDriver.findElements(elementsLocator);
+                listSize = results.size();
+                return listSize >= minimumSize;
+            }
+
+            public String toString() {
+                return String.format("\nsize of list: %s\n minimum size should be: %s\n while actual size is: %s\n", results, minimumSize, listSize);
 
             }
         };

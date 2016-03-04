@@ -13,12 +13,20 @@ public abstract class ConciseAPI {
     public abstract WebDriver getWebDriver();
 
     public <V> void assertThat(ExpectedCondition<V> condition) {
-        (new WebDriverWait(getWebDriver(), Configuration.timeout)).until(condition);
+        assertThat(condition, Configuration.timeout);
+    }
+
+    public <V> void assertThat(ExpectedCondition<V> condition, int timeout) {
+        (new WebDriverWait(getWebDriver(), timeout)).until(condition);
     }
 
     public WebElement $(By locator) {
         assertThat(visibilityOfElementLocated(locator));
         return getWebDriver().findElement(locator);
+    }
+
+    public WebElement $(String cssSelector) {
+        return getWebDriver().findElement(By.cssSelector(cssSelector));
     }
 
     public By byText(String text) {
@@ -27,10 +35,6 @@ public abstract class ConciseAPI {
 
     public By byCSS(String cssSelector) {
         return By.cssSelector(cssSelector);
-    }
-
-    public WebElement $(String cssSelector) {
-        return getWebDriver().findElement(By.cssSelector(cssSelector));
     }
 
     public void open(String URL) {
